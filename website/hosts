@@ -1,0 +1,42 @@
+127.0.0.1	localhost
+127.0.1.1	mamithi
+
+# The following lines are desirable for IPv6 capable hosts
+::1     ip6-localhost ip6-loopback
+fe00::0 ip6-localnet
+ff00::0 ip6-mcastprefix
+ff02::1 ip6-allnodes
+ff02::2 ip6-allrouters
+
+127.0.0.1	old.tospay.test
+127.0.0.1	firebase.test
+127.0.0.1	sockets.test
+127.0.0.1	angular.test
+127.0.0.1	blog.test
+127.0.0.1	tajirika.test
+127.0.0.1	phone.test
+127.0.0.1	soko.test
+127.0.0.1	chat.test
+127.0.0.1	travel.test
+127.0.0.1	socketio.test
+127.0.0.1	passport.test
+127.0.0.1	chatapp.test
+127.0.0.1	portal.test
+127.0.0.1	echo.test
+127.0.0.1	ecommerce.test
+127.0.0.1	OOP.test
+127.0.0.1	urban.test
+127.0.0.1	coolblog.test
+127.0.0.1	not.test
+
+127.0.0.1	tospay.test
+127.0.0.1	auth.tospay.test
+127.0.0.1	ukash.tospay.test
+127.0.0.1	hanti.tospay.test 
+127.0.0.1	notify.tospay.test
+
+192.168.8.226	auth.tospay.example
+192.168.8.226	hanti.tospay.example
+182.168.8.226	ukash.tospay.example
+
+# Blocked sites during working hours
