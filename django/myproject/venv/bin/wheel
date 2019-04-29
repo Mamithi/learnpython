@@ -1,4 +1,4 @@
-#!/home/lawrence/Projects/learnpython/django/myproject/venv/bin/python
+#!/home/lawrence/Projects/learnpython/django/myproject/venv/bin/python3
 # -*- coding: utf-8 -*-
 import re
 import sys
