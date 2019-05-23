@@ -12,4 +12,4 @@ print("Let's begin!")
 
 sleep_asynchronously.delay()
 
-print(".. and thats the end of the weight")
+print(".. and thats the end of the wait")
