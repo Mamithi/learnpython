@@ -42,8 +42,10 @@ class Stream(object):
 
 
         # Set properties for source and hlssink
-        self.source.set_property("location", "rtsp://admin:pangani123@192.168.1.240:554/LiveMedia/ch1/Media1")
+        # self.source.set_property("location", "rtsp://admin:pangani123@192.168.1.240:554/LiveMedia/ch1/Media1")
+        self.source.set_property("location", "rtsp://FACEREC:QWERTY12345@192.168.1.5:554/cam/realmonitor?channel=1&subtype=1")
         self.hlssink_sink.set_property("max-files", 5)
+        self.hlssink_sink.set_property("playlist-length", 3)
         self.hlssink_sink.set_property("target-duration", 1)
 
         # Connect to the pad-added signal
@@ -126,3 +128,5 @@ class Stream(object):
 
 if __name__ == '__main__':
     stream = Stream()
+
+    # http://139.59.210.66/hls/spyvan1.m3u8

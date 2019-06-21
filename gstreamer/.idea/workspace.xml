@@ -2,8 +2,25 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="80c0208c-9e30-48f8-9b50-b9914b410925" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/live.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../simple-celery/task.py" beforeDir="false" afterPath="$PROJECT_DIR$/../simple-celery/task.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../django/channels/channels/chat/consumers.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../django/channels/channels/chat/routing.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/active.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/testing.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vlc.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../django/channels/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../django/channels/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../django/channels/channels/channels/routing.py" beforeDir="false" afterPath="$PROJECT_DIR$/../django/channels/channels/channels/routing.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../django/channels/channels/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/../django/channels/channels/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/live.py" beforeDir="false" afterPath="$PROJECT_DIR$/live.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/record00000.mp4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/record00001.mp4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/record00002.mp4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/record00003.mp4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/record00004.mp4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/record00005.mp4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/record00006.mp4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/record00007.mp4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stream.py" beforeDir="false" afterPath="$PROJECT_DIR$/stream.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -16,8 +33,29 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/stream.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1035">
-              <caret line="93" column="21" lean-forward="true" selection-start-line="93" selection-start-column="21" selection-end-line="93" selection-end-column="21" />
+            <state relative-caret-position="705">
+              <caret line="48" column="39" selection-start-line="48" selection-start-column="39" selection-end-line="48" selection-end-column="39" />
+              <folding>
+                <element signature="e#0#10#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/testing.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="45">
+              <caret line="3" selection-start-line="3" selection-end-line="3" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/live.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="150">
+              <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
               <folding>
                 <element signature="e#0#10#0" expanded="true" />
               </folding>
@@ -26,13 +64,15 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/live.py">
+        <entry file="file://$PROJECT_DIR$/active.py">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/vlc.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="345">
-              <caret line="49" lean-forward="true" selection-start-line="49" selection-end-line="49" />
-              <folding>
-                <element signature="e#0#10#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="90">
+              <caret line="6" column="24" selection-start-line="6" selection-start-column="24" selection-end-line="6" selection-end-column="24" />
             </state>
           </provider>
         </entry>
@@ -53,16 +93,10 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/live.py" />
-      </list>
-    </option>
-  </component>
-  <component name="ProjectConfigurationFiles">
-    <option name="files">
-      <list>
-        <option value="$PROJECT_DIR$/.idea/gstreamer.iml" />
-        <option value="$PROJECT_DIR$/.idea/vcs.xml" />
-        <option value="$PROJECT_DIR$/.idea/misc.xml" />
-        <option value="$PROJECT_DIR$/.idea/modules.xml" />
+        <option value="$PROJECT_DIR$/vlc.py" />
+        <option value="$PROJECT_DIR$/testing.py" />
+        <option value="$PROJECT_DIR$/stream.py" />
+        <option value="$PROJECT_DIR$/active.py" />
       </list>
     </option>
   </component>
@@ -77,11 +111,25 @@
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
-    <panes />
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="gstreamer" type="b2602c69:ProjectViewProjectNode" />
+              <item name="gstreamer" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+    </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../django/channels" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../neural_networks/deep_learning" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
   </component>
@@ -109,16 +157,19 @@
       <updated>1558606581470</updated>
       <workItem from="1558606583508" duration="3441000" />
       <workItem from="1558613160571" duration="2286000" />
+      <workItem from="1558679414013" duration="9138000" />
+      <workItem from="1559550014911" duration="4774000" />
+      <workItem from="1561107729989" duration="124000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="5727000" />
+    <option name="totallyTimeSpent" value="19763000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="67" y="25" width="1853" height="1055" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" weight="0.24958494" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1776425" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -131,8 +182,8 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
-      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="11" visible="true" weight="0.32829374" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50056756" side_tool="true" weight="0.32721382" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="11" sideWeight="0.49943247" visible="true" weight="0.32721382" />
       <window_info anchor="bottom" id="Python Console" order="12" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -147,23 +198,40 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/stream.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1035">
-          <caret line="93" column="21" lean-forward="true" selection-start-line="93" selection-start-column="21" selection-end-line="93" selection-end-column="21" />
+        <state relative-caret-position="705">
+          <caret line="48" column="39" selection-start-line="48" selection-start-column="39" selection-end-line="48" selection-end-column="39" />
           <folding>
             <element signature="e#0#10#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/testing.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" selection-start-line="3" selection-end-line="3" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/live.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="49" lean-forward="true" selection-start-line="49" selection-end-line="49" />
+        <state relative-caret-position="150">
+          <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
           <folding>
             <element signature="e#0#10#0" expanded="true" />
           </folding>
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vlc.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="24" selection-start-line="6" selection-start-column="24" selection-end-line="6" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/active.py">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
   </component>
 </project>

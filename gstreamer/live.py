@@ -10,22 +10,23 @@ class Live(object):
     def __init__(self):
         Gst.init(None)
 
-        # self.source = Gst.ElementFactory.make("rtspsrc", "source")
-        self.source = Gst.ElementFactory.make("v4l2src", "source")
-        self.sink = Gst.ElementFactory.make("autovideosink", "sink")
+        self.source = Gst.ElementFactory.make("rtspsrc", "source")
+        # self.source = Gst.ElementFactory.make("v4l2src", "source")
+        # self.sink = Gst.ElementFactory.make("autovideosink", "sink")
 
         self.pipeline = Gst.Pipeline.new("pipeline")
 
-        if not self.pipeline or not self.source or not self.sink:
+        if not self.pipeline or not self.source:
             print("Error: Could not create the elements")
 
-        self.pipeline.add(self.source, self.sink)
+        # self.pipeline.add(self.source, self.sink)
+        self.pipeline.add(self.source)
+        #
+        # if not self.source.link(self.sink):
+        #     print("ERROR: Could not link source and sink")
 
-        if not self.source.link(self.sink):
-            print("ERROR: Could not link source and sink")
-
-        # self.source.set_property("location", "rtsp://admin:pangani123@192.168.1.240:554/LiveMedia/ch1/Media1")
-        self.source.set_property("device", "/dev/video0")
+        self.source.set_property("location", "rtsp://admin:pangani123@192.168.1.240:554/LiveMedia/ch1/Media1")
+        # self.source.set_property("device", "/dev/video0")
 
         ret = self.pipeline.set_state(Gst.State.PLAYING)
 
