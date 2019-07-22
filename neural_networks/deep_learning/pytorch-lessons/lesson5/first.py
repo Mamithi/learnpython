@@ -11,18 +11,22 @@ from torch.utils.data.sampler import SubsetRandomSampler
 class Net(nn.Module):
     def __init__(self):
         super().__init__()
-        self.fc1 = nn.Linear(784, 256)
-        self.fc2 = nn.Linear(256, 64)
-        self.fc3 = nn.Linear(64, 10)
+        hidden_1 = 512
+        hidden_2 = 512
+        self.fc1 = nn.Linear(784, hidden_1)
+        self.fc2 = nn.Linear(hidden_1, hidden_2)
+        self.fc3 = nn.Linear(hidden_2, 10)
 
         self.dropout = nn.Dropout(0.2)
 
     def forward(self, x):
-        x = x.view(x.shape[0], -1)
+        x = x.view(-1, 784)
 
         x = self.dropout(F.relu(self.fc1(x)))
         x = self.dropout(F.relu(self.fc2(x)))
+        # x = self.fc3(x)
         x = F.log_softmax(self.fc3(x), dim=1)
+
 
         return x
 
@@ -60,18 +64,27 @@ for i in np.arange(20):
     ax = fig.add_subplot(2, 20/2, i+1, xticks=[], yticks=[])
     ax.imshow(np.squeeze(images[i]), cmap='gray')
     ax.set_title(str(labels[i].item()))
-# plt.show()
+plt.show()
 
 
+# model = Net()
+# initialize the NN
 model = Net()
+print(model)
 
 criterion = nn.NLLLoss()
-optimizer = optim.SGD(model.parameters(), lr=0.003)
+optimizer = optim.SGD(model.parameters(), lr=0.001)
 
-epochs = 50
+epochs = 100
+
+#initialize tracker for minimum validation loss
+valid_loss_min = np.Inf # set initial "min" to infinity
+
 model.train()
 for epoch in range(epochs):
-    train_loss = 0
+    train_loss = 0.0
+    valid_loss = 0.0
+    # Train the model
     for data, target in train_loader:
         optimizer.zero_grad()
 
@@ -85,12 +98,33 @@ for epoch in range(epochs):
 
         train_loss += loss.item()*data.size(0)
 
-    train_loss = train_loss/len(train_loader.dataset)
+    # validate the model
+    model.eval()
+    for data, target in valid_loader:
+        output = model(data)
 
-    print('Epoch: {} \tTraining Loss: {:.6f}'.format(
+        loss = criterion(output, target)
+
+        valid_loss += loss.item()*data.size(0)
+
+    train_loss = train_loss/len(train_loader.sampler)
+    valid_loss = valid_loss/len(valid_loader.sampler)
+
+    print('Epoch: {} \tTraining Loss: {:.6f} \tValidation Loss: {:.6f}'.format(
         epoch+1,
-        train_loss))
+        train_loss,
+        valid_loss))
 
+    # Save model if validation loss has decreased
+    if valid_loss <= valid_loss_min:
+        print("Validation loss decreased ({:.6f}) --> {:.6f}). Saving model".format(
+            valid_loss_min,
+            valid_loss))
+        torch.save(model.state_dict(), 'model.pt')
+        valid_loss_min = valid_loss
+
+# Load the Model with the Lowest Validation Loss
+model.load_state_dict(torch.load('model.pt'))
 
 # testing the model
 test_loss = 0.0
