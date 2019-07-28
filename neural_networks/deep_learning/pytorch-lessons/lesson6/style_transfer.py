@@ -182,8 +182,8 @@ for ii in range(1, steps+1):
     if ii % show_every == 0:
         print("Total loss: ", total_loss.item())
 
-        plt.imshow(im_convert(target))
-        plt.show()
+        # plt.imshow(im_convert(target))
+        # plt.show()
 
 # display content and final, target image
 fig, (ax1, ax2) = plt.subplots(1,2, figsize=(20, 10))
