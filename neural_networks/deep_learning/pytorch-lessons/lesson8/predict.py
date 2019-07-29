@@ -230,3 +230,109 @@ for epoch in range(epochs):
                   "Step: {}...".format(counter),
                   "Loss: {:.6f}...".format(loss.item()),
                   "Validation Loss: {:.6f}".format(np.mean(val_losses)))
+
+
+# Get test data loss and accuracy
+test_losses = []
+num_correct = 0
+
+# init hidden state
+h = net.init_hidden(batch_size)
+
+net.eval()
+
+# iterate over test data
+for inputs, labels in test_loader:
+    # creatung new variables for the hidden state
+    h = tuple([each.data for each in h])
+    if(train_on_gpu):
+        inputs, labels = inputs.cuda(), labels.cuda()
+
+        output, h = net(inputs, h)
+        # calculate loss
+        test_loss = criterion(output.squeeze(), labels.float())
+        test_losses.append(test_loss.item())
+        # convert output probabilities to predicted class (0 or 1)
+        pred = torch.round(output.squeeze())
+
+        # Compare predictions to true label
+        correct_tensor = pred.eq(labels.float().view_as(pred))
+        correct = np.squeeze(correct_tensor.numpy()) if not train_on_gpu else np.squeeze(
+            correct_tensor.cpu().numpy())
+        num_correct += np.sum(correct)
+
+# ------ stats! --- ##
+print("Test loss: {:.3f}".format(np.mean(test_losses)))
+
+# Accuracy over all test data
+test_acc = num_correct/len(test_loader.dataset)
+print("Test accuracy: {:.3f}".format(test_acc))
+
+
+# negative test review
+test_review_neg = 'The worst movie I have seen; acting was terrible and I want my money back. This movie had bad acting and the dialogue was slow.'
+def tokenize_review(test_review):
+    test_review = test_review.lower()
+    # get rid of punctuation
+    test_text = ''.join([c for c in test_review if c not in punctuation])
+    # spliting by spaces
+    test_words = test_text.split()
+
+    #tokens
+    test_ints = []
+    test_ints.append([vocab_to_int[word] for word in test_words])
+
+    return test_ints
+
+test_ints = tokenize_review(test_review_neg)
+print(test_ints)
+
+# test sequence padding
+seq_length = 200
+features = pad_features(test_ints, seq_length)
+print(features)
+
+# test conversion to tensor and pass into your model
+feature_tensor = torch.from_numpy(features)
+print(feature_tensor.size())
+
+def predict(net, test_review, seq_length=200):
+    net.eval()
+
+    # tokenize review
+    test_ints = tokenize_review(test_review)
+
+    # pad tokenized sequence
+    seq_length = seq_length
+    features = pad_features(test_ints, seq_length)
+    # convert to tensor to pass into your model
+    feature_tensor = torch.from_numpy(features)
+
+    batch_size = feature_tensor.size(0)
+
+    # initialize hidden state
+    h = net.init_hidden(batch_size)
+    
+    if(train_on_gpu):
+        feature_tensor = feature_tensor.cuda()
+
+    # get the output from teh model
+    output, h = net(feature_tensor, h)
+
+    # convert output probabilities to predicted class (0 or 1)
+    pred = torch.round(output.squeeze())
+    #printing output value, before rounding
+    print('Prediction value, pre-rounding: {:.6f}'.format(output.item()))
+
+    #print custome response
+    if(pred.item() == 1):
+        print("Positive review detected!")
+    else:
+        print("Negative review detected.")
+
+# Positive test review
+test_review_pos = 'This movie had the best acting and the dialogue was so good. I loved it.'
+
+# call function
+seq_length = 200
+predict(net, test_review_neg, seq_length)
