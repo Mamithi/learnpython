@@ -1,0 +1,24 @@
+{
+    "cameras": [
+        {
+            "id": 3,
+            "rtsp_url": "rtsp://admin:pangani123@192.168.1.240/LiveMedia/ch1/Media1"
+        },
+        {
+            "id": 2,
+            "rtsp_url": "rtsp://admin:pangani123@192.168.1.240/LiveMedia/ch1/Media1"
+        },
+        {
+            "id": 1,
+            "rtsp_url": "rtsp://admin:pangani123@192.168.1.240/LiveMedia/ch1/Media1"
+        },{
+            "id": 4,
+            "rtsp_url": "rtsp://admin:pangani123@192.168.1.240/LiveMedia/ch1/Media1"
+        },
+        {
+            "id": 5,
+            "rtsp_url": "rtsp://admin:pangani123@192.168.1.240/LiveMedia/ch1/Media1"
+        }
+    ],
+    "rtmp_server": "rtmp://192.168.0.39/live/"
+}
