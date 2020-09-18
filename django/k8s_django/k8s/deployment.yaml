@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: k8sdjango-deployment
+  labels:
+    component: web
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      component: web
+  template:
+    metadata:
+      labels:
+        component: web
+    spec:
+      containers:
+        - name: k8sdjango
+          image: mamithi/k8sdjango:v0.0.5
+          ports:
+            - containerPort: 8000
+          env:
+            - name: POSTGRES_USER
+              valueFrom:
+                secretKeyRef:
+                  name: k8sdjango-postgres-credentials
+                  key: user
+
+            - name: POSTGRES_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: k8sdjango-postgres-credentials
+                  key: password
+
+            - name: POSTGRES_HOST
+              value: k8sdjango-postgres-service
+
+            - name: REDIS_HOST
+              value: k8sdjango-redis-service

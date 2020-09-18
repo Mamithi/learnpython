@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: k8sdjango-flower-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      component: celery-flower
+  template:
+    metadata:
+      labels:
+        component: celery-flower
+    spec:
+      containers:
+        - name: celery-flower-deployment
+          image: mamithi/k8sdjango:v0.0.5
+          command: ['celery', 'flower', '-A', 'k8s_django', 'flower']
+          ports:
+            - containerPort: 5555
+          env:
+            - name: REDIS_HOST
+              value: k8sdjango-redis-service
+          resources:
+            limits:
+              cpu: 100m

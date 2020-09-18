@@ -1,0 +1,44 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: k8sdjango-postgres-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      component: postgres-container
+  template:
+    metadata:
+      labels:
+        component: postgres-container
+        tier: backend
+    spec:
+      containers:
+        - name: postgres-container
+          image: postgres:9.6.6
+          env:
+            - name: POSTGRES_USER
+              valueFrom:
+                secretKeyRef:
+                  name: k8sdjango-postgres-credentials
+                  key: user
+
+            - name: POSTGRES_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: k8sdjango-postgres-credentials
+                  key: password
+
+            - name: POSTGRES_DB
+              value: kubernetes_django
+
+          ports:
+            - containerPort: 5432
+          volumeMounts:
+            - name: postgres-volume-mount
+              mountPath: /var/lib/postgresql/data
+
+      volumes:
+        - name: postgres-volume-mount
+          persistentVolumeClaim:
+            claimName: k8sdjango-postgres-pvc

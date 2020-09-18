@@ -1,0 +1,28 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: k8sdjango-postgres-migrations
+spec:
+  template:
+    spec:
+      containers:
+        - name: django-migration
+          image: mamithi/k8sdjango:v0.0.5
+          command: ['python', 'manage.py', 'migrate']
+          env:
+            - name: POSTGRES_USER
+              valueFrom:
+                secretKeyRef:
+                  name: k8sdjango-postgres-credentials
+                  key: user
+
+            - name: POSTGRES_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: k8sdjango-postgres-credentials
+                  key: password
+
+            - name: POSTGRES_HOST
+              value: k8sdjango-postgres-service
+      restartPolicy: Never
+  backoffLimit: 5
