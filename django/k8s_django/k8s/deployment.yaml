@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: k8sdjango
-          image: mamithi/k8sdjango:v0.0.5
+          image: mamithi/k8sdjango:v0.0.7
           ports:
             - containerPort: 8000
           env:

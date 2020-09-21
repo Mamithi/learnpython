@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: celery-worker
-          image: mamithi/k8sdjango:v0.0.5
+          image: mamithi/k8sdjango:v0.0.7
           command: ['celery', '-A', 'k8s_django', 'worker', '-l', 'info']
           env:
             - name: POSTGRES_USER

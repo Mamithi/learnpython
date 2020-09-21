@@ -7,7 +7,7 @@ spec:
     spec:
       containers:
         - name: django-migration
-          image: mamithi/k8sdjango:v0.0.5
+          image: mamithi/k8sdjango:v0.0.7
           command: ['python', 'manage.py', 'migrate']
           env:
             - name: POSTGRES_USER
