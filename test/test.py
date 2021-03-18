@@ -1,8 +1,7 @@
-import sys
+import subprocess
 
-print("Hello, and welcome to my app!")
-
-print(f"We're running Python {sys.version}")
-
-for i in range(10):
-    print(f"{i} ** 2 = {i**2}, {i} ** 3 = {i**3}")
+cmd = ['ffmpeg', '-y', '-ss', '00:00:10.000', '-i', '1.m3u8', '-vframes', '1', '-vf', 'scale=720:480',
+                   'out.jpg']
+            devnull = open(os.devnull, 'wb')
+            subprocess.Popen(cmd, cwd="/", stdout=devnull, stderr=devnull)
+            print(cmd)
